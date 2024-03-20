@@ -1,0 +1,75 @@
+site_name: 计算机体系结构实验（2022秋季） | 哈工大（深圳）
+copyright: 'Copyright &copy; 2019 - 2021 哈尔滨工业大学（深圳）'
+repo_name: 'CompArch'
+repo_url: 'https://gitee.com/hitsz-cslab/arch'
+
+markdown_extensions:
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - admonition
+  - mdx_math:
+      enable_dollar_delimiter: True
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+  # - mathjaxhelper.js
+
+
+theme:
+  language: 'zh'
+  name: material
+  features:
+    - navigation.tabs
+  icon:
+    logo: fontawesome/solid/microchip
+    repo: fontawesome/brands/git-alt
+    # favicon: fontawesome/solid/microchip
+  palette:
+    primary: 'teal'
+    accent: 'teal'
+
+nav:
+  - 首页:
+    - 实验须知: index.md
+    - 作业提交说明: ojguide.md
+    - 虚拟机共享文件: vm.md
+  - 实验1：Pin入门及指令依赖距离分析:
+    - 实验概述: lab1/overview.md
+    - 实验原理: lab1/theory.md
+    - 实验步骤: lab1/step.md
+    - 附加题: lab1/extra.md
+    - 验收与提交: lab1/submit.md
+  - 实验2：分支预测器设计:
+    - 实验概述: lab2/overview.md
+    - 实验原理: lab2/theory.md
+    - 实验步骤: lab2/step.md
+    - 附加题: lab2/extra.md
+    - 验收与提交: lab2/submit.md
+  - 实验3：Cache设计:
+    - 实验概述: lab3/overview.md
+    - 实验原理: lab3/theory.md
+    - 实验步骤: lab3/step.md
+    - 附加题: lab3/extra.md
+    - 验收与提交: lab3/submit.md
+  - 实验4：层次存储系统分析: 
+    - 实验概述: lab4/overview.md
+    - 实验原理: lab4/theory.md
+    - 实验步骤: lab4/step.md
+    - 附加题: lab4/extra.md
+    - 验收与提交: lab4/submit.md
+ 
