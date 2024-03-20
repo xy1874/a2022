@@ -1,0 +1,1214 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>实验原理 - 计算机体系结构实验（2022秋季） | 哈工大（深圳）</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="计算机体系结构实验（2022秋季） | 哈工大（深圳）" class="md-header__button md-logo" aria-label="计算机体系结构实验（2022秋季） | 哈工大（深圳）" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24zm-16 104h192c17.7 0 32 14.3 32 32v192c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160v192h192V160z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            计算机体系结构实验（2022秋季） | 哈工大（深圳）
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              实验原理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://gitee.com/hitsz-cslab/arch" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CompArch
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        首页
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lab1/overview/" class="md-tabs__link">
+        实验1：Pin入门及指令依赖距离分析
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../overview/" class="md-tabs__link md-tabs__link--active">
+        实验2：分支预测器设计
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lab3/overview/" class="md-tabs__link">
+        实验3：Cache设计
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lab4/overview/" class="md-tabs__link">
+        实验4：层次存储系统分析
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="计算机体系结构实验（2022秋季） | 哈工大（深圳）" class="md-nav__button md-logo" aria-label="计算机体系结构实验（2022秋季） | 哈工大（深圳）" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24zm-16 104h192c17.7 0 32 14.3 32 32v192c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160v192h192V160z"/></svg>
+
+    </a>
+    计算机体系结构实验（2022秋季） | 哈工大（深圳）
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://gitee.com/hitsz-cslab/arch" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CompArch
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          首页
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="首页" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          首页
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        实验须知
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ojguide/" class="md-nav__link">
+        作业提交说明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vm/" class="md-nav__link">
+        虚拟机共享文件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          实验1：Pin入门及指令依赖距离分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验1：Pin入门及指令依赖距离分析" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          实验1：Pin入门及指令依赖距离分析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab1/overview/" class="md-nav__link">
+        实验概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab1/theory/" class="md-nav__link">
+        实验原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab1/step/" class="md-nav__link">
+        实验步骤
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab1/extra/" class="md-nav__link">
+        附加题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab1/submit/" class="md-nav__link">
+        验收与提交
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          实验2：分支预测器设计
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验2：分支预测器设计" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          实验2：分支预测器设计
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        实验概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          实验原理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        实验原理
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 静态分支预测
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 动态分支预测
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 动态分支预测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-bht" class="md-nav__link">
+    2.1 基于BHT的分支预测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 基于全局历史的分支预测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 基于局部历史的分支预测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 锦标赛分支预测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-tage" class="md-nav__link">
+    2.5 TAGE分支预测
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 TAGE分支预测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-tage" class="md-nav__link">
+    2.5.1 TAGE基本结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-tage" class="md-nav__link">
+    2.5.2 TAGE预测机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-tage" class="md-nav__link">
+    2.5.3 TAGE更新策略
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../step/" class="md-nav__link">
+        实验步骤
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extra/" class="md-nav__link">
+        附加题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../submit/" class="md-nav__link">
+        验收与提交
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          实验3：Cache设计
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验3：Cache设计" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          实验3：Cache设计
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/overview/" class="md-nav__link">
+        实验概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/theory/" class="md-nav__link">
+        实验原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/step/" class="md-nav__link">
+        实验步骤
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/extra/" class="md-nav__link">
+        附加题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/submit/" class="md-nav__link">
+        验收与提交
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          实验4：层次存储系统分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验4：层次存储系统分析" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          实验4：层次存储系统分析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/overview/" class="md-nav__link">
+        实验概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/theory/" class="md-nav__link">
+        实验原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/step/" class="md-nav__link">
+        实验步骤
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/extra/" class="md-nav__link">
+        附加题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/submit/" class="md-nav__link">
+        验收与提交
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 静态分支预测
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 动态分支预测
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 动态分支预测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-bht" class="md-nav__link">
+    2.1 基于BHT的分支预测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 基于全局历史的分支预测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 基于局部历史的分支预测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 锦标赛分支预测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-tage" class="md-nav__link">
+    2.5 TAGE分支预测
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 TAGE分支预测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-tage" class="md-nav__link">
+    2.5.1 TAGE基本结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-tage" class="md-nav__link">
+    2.5.2 TAGE预测机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-tage" class="md-nav__link">
+    2.5.3 TAGE更新策略
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">实验原理</h1>
+<p>&emsp;&emsp;现代CPU通常使用超标量的深度流水线来提高性能，而超标量和深度流水线通常需要分支预测技术来加以配合。在多发射的深度流水线架构中，分支预测的准确率直接影响流水线效率、取指带宽利用率等性能指标。例如，对于5发射的10级流水线，若分支预测的准确率为90%，则取指带宽将浪费47%；若分支预测的准确率提高到96%，则带宽的浪费可降低到26%。</p>
+<p>&emsp;&emsp;按照分支预测的工作方式，可将分支预测方法分为静态和动态两种。静态分支预测根据指令的操作码和寻址方式进行预测，而动态分支预测则是根据指令执行时的分支行为历史进行预测。</p>
+<h2 id="1">1. 静态分支预测</h2>
+<p>&emsp;&emsp;最简单的静态分支预测方法是预测分支指令总是跳转，或预测总是不跳转。显然，使用这种方法对不同的程序进行分支预测时，预测准确率会有很大差异。一种改进的预测方法是若分支指令是往回跳的就预测跳转，否则预测不跳转，这种方法对单循环的预测效果较好。</p>
+<p>&emsp;&emsp;静态分支预测的优点是实现简单、硬件开销较小、预测速度较快，但预测准确度相对较低，不能满足通用处理器对性能日益增长的需求。</p>
+<h2 id="2">2. 动态分支预测</h2>
+<p>&emsp;&emsp;动态分支预测根据分支指令的过去表现来预测其将来的行为。如果分支行为发生变化，那么分支预测的结果也相应地发生改变。因此，动态分支预测与静态分支预测相比具有更好的预测准确率和适应性。</p>
+<p>&emsp;&emsp;这里介绍常用的几种动态分支预测方法。</p>
+<h3 id="21-bht">2.1 基于BHT的分支预测</h3>
+<p>&emsp;&emsp;基于BHT（Branch History Table）的分支预测方法使用分支历史表来记录分支指令的历史行为。BHT的基础结构如图3-1所示。</p>
+<p><center><img src="../assets/3-1.png" width = 180></center>
+<center>图3-1 基础BHT的结构</center></p>
+<p>&emsp;&emsp;其中，Tag字段类似于Cache的Tag，是指令地址的一部分；分支历史由若干个2bit饱和计数器组成。预测时，取分支指令的地址去查BHT的Tag字段，然后根据BHT当前行的分支历史，对分支的跳转方向进行预测。</p>
+<p>&emsp;&emsp;如果BHT只记录各分支指令最近1次的分支历史，则只需使用1bit的饱和计数器。理论上，可使用任意位宽的饱和计数器来记录分支历史。有研究表明，2bit饱和计数器的预测性能与更高位宽的预测性能差不多。因此在实践中，通常使用2bit饱和计数器。</p>
+<p>&emsp;&emsp;基于2bit饱和计数器进行分支预测的原理如图3-2所示。</p>
+<p><center><img src="../assets/3-2.png" width = 450></center>
+<center>图3-2 基于2bit饱和计数器的分支预测</center></p>
+<div class="admonition question">
+<p class="admonition-title">想一想 <img alt="💁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f481.svg" title=":information_desk_person:" /></p>
+<p>&emsp;&emsp;按照图3-2所示的编码规律，当饱和计数器是3bit时应该如何预测？</p>
+</div>
+<p>&emsp;&emsp;完整的分支预测过程包含预测和更新2个步骤。预测时，用分支指令的地址查BHT，获得相应的饱和计数器值。若饱和计数器的最高位为1，预测分支跳转，否则预测分支不跳转。当分支指令的实际跳转方向被确定时，不管预测是否正确，都根据图3-2对BHT中的饱和计数器进行更新，从而达到动态调整分支预测结果的目的。</p>
+<p>&emsp;&emsp;上述方法只能预测分支跳转的方向，不能预测分支目标地址。为此，可在图3-1所示的BHT中增加有效位和分支目标地址2个字段——有效位字段用于表示当前行的记录是否有效，而分支目标地址字段则用于记录分支指令的历史分支目标地址。此时，BHT的结构如图3-3所示。</p>
+<p><center><img src="../assets/3-3.png" width = 300></center>
+<center>图3-3 改进的BHT结构</center></p>
+<p>&emsp;&emsp;预测时，取分支指令的地址去查BHT，查得当前行可能无效，也可能有效。如果当前行无效，且分支指令不跳转，则不进行更新操作；如果当前行无效，但分支指令跳转，则将当前行标记为有效，同时复位饱和计数器，并将分支指令的目标地址更新到BHT中。如果当前行有效，则用BHT记录的分支目标地址来预测分支指令的分支目标地址，此时若预测成功，则按照图3-2对饱和计数器进行更新；若预测失败，则将当前行标记为无效。</p>
+<h3 id="22">2.2 基于全局历史的分支预测</h3>
+<p>&emsp;&emsp;基于BHT的分支预测方法忽视了分支指令之间的关联性。为此，基于全局历史的分支预测方法在BHT的基础上增加了GHR（Global History Register，全局历史寄存器）来将所有分支指令关联起来。</p>
+<p>&emsp;&emsp;基于全局历史的分支预测方法使用一个k比特的GHR来记录所有最近k条分支指令的历史跳转方向，并使用PHT（Pattern History Table，模式历史表）来记录各分支指令的分支历史。其中，PHT的结构类似于BHT。</p>
+<p>&emsp;&emsp;预测时，首先将分支指令的地址和GHR进行hash运算，再用得到的hash值来查PHT，然后根据PHT当前行的分支历史和分支目标地址，对该分支指令的分支跳转方向和分支目标地址进行预测，如图3-4所示。</p>
+<p><center><img src="../assets/3-4.png" width = 470></center>
+<center>图3-4 基于全局历史的分支预测</center></p>
+<p>&emsp;&emsp;当分支指令的实际跳转行为被确定时，GHR通过移位的方式进行更新——若指令跳转，则<script type="math/tex">GHR = (GHR << 1) | 1</script>，否则<script type="math/tex">GHR = (GHR << 1) | 0</script>。</p>
+<h3 id="23">2.3 基于局部历史的分支预测</h3>
+<p>&emsp;&emsp;基于全局历史的分支预测方法将所有分支指令都关联到一起。然而事实上，并非所有的分支指令都具有关联性。为此，基于局部历史的分支预测方法使用LHT（Local History Table，局部历史表）来代替全局历史预测中的GHR。</p>
+<p>&emsp;&emsp;LHT一般具有64条记录，每条记录均包含Tag和局部转移历史2个字段。其中，Tag字段是分支指令地址的一部分，局部转移历史字段则是k比特的移位寄存器，其作用等同于GHR。</p>
+<p>&emsp;&emsp;预测时，首先用分支指令的地址查LHT，得到分支指令的局部转移历史LHT[i]；然后将分支指令的地址和LHT[i]进行hash运算，再用得到的hash值来查PHT；最后根据PHT当前行的分支历史和分支目标地址，对该分支指令的分支跳转方向和分支目标地址进行预测，如图3-5所示。</p>
+<p><center><img src="../assets/3-5.png" width = 500></center>
+<center>图3-5 基于局部历史的分支预测</center></p>
+<p>&emsp;&emsp;当分支指令的实际跳转行为被确定时，LHT[i]和GHR一样，也通过移位的方式进行更新——若指令跳转，则<script type="math/tex">LHT[i] = (LHT[i] << 1) | 1</script>，否则<script type="math/tex">LHT[i] = (LHT[i] << 1) | 0</script>。</p>
+<h3 id="24">2.4 锦标赛分支预测</h3>
+<p>&emsp;&emsp;锦标赛分支预测（又称混合分支预测或组合分支预测）是一种博采众长的分支预测方法，其基本原理是将两个或以上的分支预测方法进行结合，充分发挥各预测方法的优势，以进一步提高分支预测的准确度，如图3-6所示。</p>
+<p><center><img src="../assets/3-6.png" width = 380></center>
+<center>图3-6 锦标赛分支预测原理</center></p>
+<p>&emsp;&emsp;下面仅对内部含有2个子预测器的锦标赛预测方法进行讨论。</p>
+<p>&emsp;&emsp;选择逻辑有2种实现方法：基于全局选择历史的选择方法和基于局部选择历史的选择方法。</p>
+<ul>
+<li>基于全局选择历史的选择方法</li>
+</ul>
+<p>&emsp;&emsp;基于全局选择历史的选择方法使用一个2bit的GSHR（Global Selection History Register，全局选择历史寄存器）来记录子预测器预测结果的历史选择情况。</p>
+<p>&emsp;&emsp;预测时，若GSHR的最高位为0，则输出子预测器1的预测结果；否则输出子预测器2的预测结果。当分支指令的实际跳转行为被确定时，需要同时对子预测器和GSHR进行更新。对于子预测器，根据分支指令的实际跳转行为和锦标赛预测结果等信息，使用子预测器自身的更新策略进行更新。对于GSHR，按如图3-7所示的规则更新：若只有子预测器1预测正确，则对GSHR进行“减1”操作；若只有子预测器2预测正确，则对GSHR进行“加1”操作；其余情况下不更新GSHR。</p>
+<p><center><img src="../assets/3-7.png" width = 420></center>
+<center>图3-7 GSHR的更新规则</center></p>
+<ul>
+<li>基于局部选择历史的选择方法</li>
+</ul>
+<p>&emsp;&emsp;基于局部选择历史的选择方法使用LSHT（Local Selection History Table，局部选择历史表）来记录子预测器预测结果的历史选择情况。</p>
+<p>&emsp;&emsp;LSHT一般具有4096条记录，每条记录均包含Tag和局部选择历史2个字段。其中，Tag字段是分支指令地址的一部分，局部选择历史字段则是2bit的饱和技术器，其作用等同于GSHR。</p>
+<p>&emsp;&emsp;预测时，先取分支指令的地址查LSHT，得到相应的选择历史LSHT[i]。若LSHT[i]的最高位为0，则输出子预测器1的预测结果；否则输出子预测器2的预测结果。当分支指令的实际跳转行为被确定时，需要同时对子预测器和LSHT[i]进行更新。对于子预测器，根据分支指令的实际跳转行为和锦标赛预测结果等信息，使用子预测器自身的更新策略进行更新。对于LSHT[i]，按照图3-7所示的规则进行更新。</p>
+<h3 id="25-tage">2.5 TAGE分支预测</h3>
+<p>&emsp;&emsp;为了获得更高的预测准确率和更稳定的预测效果，现代处理器通常将多个基本预测器组合起来，形成复合预测器。上一小节所述的锦标赛预测器就是一种简单的复合预测器。本小节将介绍一种更先进的复合预测器 —— <a href="https://jilp.org/vol8/v8paper1.pdf">TAGE (partially TAgged GEometric history length branch predictor)</a>。</p>
+<p>&emsp;&emsp;TAGE是由Andre Seznec和Pierre Michaud于2006年发表的分支预测器。自发表后，TAGE及其变体长期占据了Championship Branch Prediction的榜首位置。时至今日，TAGE仍被当代的典型处理器架构所使用，如RISC-V的BOOM（Berkeley Out-of-Order Machine）、AMD Zen2架构等。</p>
+<h4 id="251-tage">2.5.1 TAGE基本结构</h4>
+<p>&emsp;&emsp;结合分支历史进行预测，其目的是利用分支的局部性来提高分支预测的性能。不管是全局历史预测方法，还是局部历史预测方法，预测器都使用固定长度的移位寄存器来存储最近的分支历史。一个很合理的猜想是，不同程序的分支局部性不同。因此，分支预测器如果采用固定长度的历史寄存器，则将无法获得稳定的预测效果。TAGE是将若干个GHR位宽呈几何倍数关系增长的全局历史预测器结合起来做预测的复合预测器，其基本结构形如图3-8所示。</p>
+<p><center><img src="../assets/3-8.png"></center>
+<center>图3-8 TAGE预测器结构图</center></p>
+<p>&emsp;&emsp;<u>TAGE的子预测器数量、各子预测器的GHR位宽、PHT表大小等参数均可配置</u>。图3-8所示的TAGE预测器 <strong>示例</strong> 含有5个子预测器，分别标记为<script type="math/tex">T0</script> ~ <script type="math/tex">T4</script>。其中，<script type="math/tex">T0</script>是一个按地址索引的饱和计数器表（即BHT预测器），用于提供基础的预测结果；<script type="math/tex">T1</script> ~ <script type="math/tex">T4</script>则为全局历史预测器，其GHR的长度分别为<script type="math/tex">L(1)</script> ~ <script type="math/tex">L(4)</script>。<script type="math/tex">L(1)</script> ~ <script type="math/tex">L(4)</script>的位宽满足<script type="math/tex">L(i) = \alpha ^ {i-1} \cdot L(1)</script>，<script type="math/tex">1 \leq i \leq 4</script>。</p>
+<div class="admonition hint">
+<p class="admonition-title">小小扩展 <img alt="📖" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4d6.svg" title=":book:" /></p>
+<p>&emsp;&emsp;关于<script type="math/tex">L(1)</script> ~ <script type="math/tex">L(4)</script>的关系，TAGE论文指出"<em>the exact formula of the series is not important, but the general form of the series is important</em>"，即关键在于让<script type="math/tex">L(1)</script> ~ <script type="math/tex">L(4)</script>保持相对的渐变关系，从而使得预测器对不同大小的分支局部具有适应性，至于<script type="math/tex">L(1)</script> ~ <script type="math/tex">L(4)</script>之间具体满足什么样的关系，则是相对次要的。</p>
+</div>
+<p>&emsp;&emsp;在图3-8中，子预测器<script type="math/tex">T1</script> ~ <script type="math/tex">T4</script>的PHT表具有相同的entry数，且每条entry均包含<script type="math/tex">pred</script>、<script type="math/tex">tag</script>和<script type="math/tex">u</script>三个字段 —— <script type="math/tex">pred</script>是用于产生预测结果的饱和计数器；<script type="math/tex">tag</script>是指令地址与<script type="math/tex">GHR_i</script>经过hash函数后，再截断至特定位宽的值；<script type="math/tex">u</script>是"<script type="math/tex">usefulness</script>"的简写，表示entry的有用程度。</p>
+<div class="admonition info">
+<p class="admonition-title">补充说明 <img alt="📣" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4e3.svg" title=":mega:" /></p>
+<p>&emsp;&emsp;在TAGE论文中，<script type="math/tex">T0</script>的饱和计数器位宽取2bit，其他子预测器的<script type="math/tex">pred</script>字段取3bit，<script type="math/tex">usefulness</script>字段取2bit。</p>
+</div>
+<h4 id="252-tage">2.5.2 TAGE预测机制</h4>
+<p>&emsp;&emsp;预测时，将指令地址同时送往子预测器<script type="math/tex">T0</script> ~ <script type="math/tex">T4</script>。<script type="math/tex">T0</script>提供基础预测结果；<script type="math/tex">T1</script> ~ <script type="math/tex">T4</script>则各自将指令地址与<script type="math/tex">GHR_1</script> ~ <script type="math/tex">GHR_4</script>进行两种类型的hash映射，产生两个hash值<script type="math/tex">h_1</script>和<script type="math/tex">h_2</script>。<script type="math/tex">h_1</script>用于查PHT得到<script type="math/tex">pred</script>、<script type="math/tex">tag</script>和<script type="math/tex">usefulness</script>，<script type="math/tex">h_2</script>用于选择子预测器 —— 若<script type="math/tex">h_1</script>查表得到的<script type="math/tex">tag</script>等于<script type="math/tex">h_2</script>，则称相应的子预测器发生了 <strong>tag匹配</strong>。</p>
+<p>&emsp;&emsp;若多个子预测器均发生了<script type="math/tex">tag</script>匹配，则在这些子预测器里，选择GHR位宽最大的作为<script type="math/tex">provider</script>，选择GHR位宽次最大的作为<script type="math/tex">altpred</script>（<em>alternate prediction，候选预测</em>）；若<script type="math/tex">T1</script> ~ <script type="math/tex">T4</script>当中只有一个子预测器发生匹配，则选择发生匹配者为<script type="math/tex">provider</script>，选择<script type="math/tex">T0</script>作为<script type="math/tex">altpred</script>；若<script type="math/tex">T1</script> ~ <script type="math/tex">T4</script>均无匹配，则选择<script type="math/tex">T0</script>作为<script type="math/tex">provider</script>和<script type="math/tex">altpred</script>。<script type="math/tex">provider</script>的预测结果将作为TAGE预测器的最终预测结果。</p>
+<h4 id="253-tage">2.5.3 TAGE更新策略</h4>
+<p>&emsp;&emsp;当分支指令的实际跳转行为被确定时，首先需要更新<script type="math/tex">provider</script>中发生<script type="math/tex">tag</script>匹配的entry。只有在<script type="math/tex">provider</script>的预测结果与<script type="math/tex">altpred</script>不相同时，才更新entry中的<script type="math/tex">usefulness</script>字段 —— 若<script type="math/tex">provider</script>预测正确，则令<script type="math/tex">usefulness</script>增加1，否则令其减小1。至于entry中的<script type="math/tex">pred</script>字段，其更新规则与一般的饱和计数器相同，详见<a href="#21-bht">2.1小节-图3-2</a>，此处不赘述。</p>
+<p>&emsp;&emsp;此外，为了防止某些entry被一直标记为useful，需定期对所有子预测器的全部<script type="math/tex">usefulness</script>的高、低位分别进行清零。</p>
+<div class="admonition info">
+<p class="admonition-title">补充说明 <img alt="📣" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4e3.svg" title=":mega:" /></p>
+<p>&emsp;&emsp;清零周期以分支指令的数量计算。在TAGE论文中，每256K条分支指令进行一次清零操作。</p>
+</div>
+<p>&emsp;&emsp;除了更新<script type="math/tex">provider</script>和各子预测器的<script type="math/tex">usefulness</script>字段，当TAGE预测失败时，还要视情况进行entry的分配。分配时，首先寻找满足以下条件的子预测器：</p>
+<ul>
+<li>a) GHR位宽比<script type="math/tex">provider</script>大  </li>
+<li>b) 对应entry的<script type="math/tex">usefulness</script>字段为零</li>
+</ul>
+<p>在所有同时满足条件a)、b)的子预测器中，选出GHR位宽最小的子预测器进行更新。更新时，将对应entry的<script type="math/tex">pred</script>字段设置为"<script type="math/tex">weak taken</script>"，并将<script type="math/tex">usefulness</script>字段清零。若所有满足条件a)的子预测器都不满足条件b)，则令这些子预测器的对应entry的<script type="math/tex">usefulness</script>字段减小1。</p>
+<div class="admonition hint">
+<p class="admonition-title">小提示 <img alt="💡" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg" title=":bulb:" /></p>
+<p>&emsp;&emsp;对于N比特的饱和计数器，"<script type="math/tex">weak taken</script>"（或"<script type="math/tex">weak correct</script>"）所对应的值为<script type="math/tex">2 ^ {N - 1}</script>。</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../overview/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 实验概述" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              实验概述
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../step/" class="md-footer__link md-footer__link--next" aria-label="下一页: 实验步骤" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              实验步骤
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2019 - 2021 哈尔滨工业大学（深圳）
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+  </body>
+</html>

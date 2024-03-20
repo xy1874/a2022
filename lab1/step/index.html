@@ -1,0 +1,1081 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>实验步骤 - 计算机体系结构实验（2022秋季） | 哈工大（深圳）</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="计算机体系结构实验（2022秋季） | 哈工大（深圳）" class="md-header__button md-logo" aria-label="计算机体系结构实验（2022秋季） | 哈工大（深圳）" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24zm-16 104h192c17.7 0 32 14.3 32 32v192c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160v192h192V160z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            计算机体系结构实验（2022秋季） | 哈工大（深圳）
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              实验步骤
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://gitee.com/hitsz-cslab/arch" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CompArch
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        首页
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../overview/" class="md-tabs__link md-tabs__link--active">
+        实验1：Pin入门及指令依赖距离分析
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lab2/overview/" class="md-tabs__link">
+        实验2：分支预测器设计
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lab3/overview/" class="md-tabs__link">
+        实验3：Cache设计
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lab4/overview/" class="md-tabs__link">
+        实验4：层次存储系统分析
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="计算机体系结构实验（2022秋季） | 哈工大（深圳）" class="md-nav__button md-logo" aria-label="计算机体系结构实验（2022秋季） | 哈工大（深圳）" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24zm-16 104h192c17.7 0 32 14.3 32 32v192c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160v192h192V160z"/></svg>
+
+    </a>
+    计算机体系结构实验（2022秋季） | 哈工大（深圳）
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://gitee.com/hitsz-cslab/arch" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CompArch
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          首页
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="首页" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          首页
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        实验须知
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ojguide/" class="md-nav__link">
+        作业提交说明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vm/" class="md-nav__link">
+        虚拟机共享文件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          实验1：Pin入门及指令依赖距离分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验1：Pin入门及指令依赖距离分析" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          实验1：Pin入门及指令依赖距离分析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        实验概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theory/" class="md-nav__link">
+        实验原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          实验步骤
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        实验步骤
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 导入虚拟机
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-pin" class="md-nav__link">
+    2. 运行Pin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-insdependdist" class="md-nav__link">
+    3. 编写insDependDist插桩工具
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extra/" class="md-nav__link">
+        附加题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../submit/" class="md-nav__link">
+        验收与提交
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          实验2：分支预测器设计
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验2：分支预测器设计" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          实验2：分支预测器设计
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/overview/" class="md-nav__link">
+        实验概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/theory/" class="md-nav__link">
+        实验原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/step/" class="md-nav__link">
+        实验步骤
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/extra/" class="md-nav__link">
+        附加题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/submit/" class="md-nav__link">
+        验收与提交
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          实验3：Cache设计
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验3：Cache设计" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          实验3：Cache设计
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/overview/" class="md-nav__link">
+        实验概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/theory/" class="md-nav__link">
+        实验原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/step/" class="md-nav__link">
+        实验步骤
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/extra/" class="md-nav__link">
+        附加题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/submit/" class="md-nav__link">
+        验收与提交
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          实验4：层次存储系统分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验4：层次存储系统分析" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          实验4：层次存储系统分析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/overview/" class="md-nav__link">
+        实验概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/theory/" class="md-nav__link">
+        实验原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/step/" class="md-nav__link">
+        实验步骤
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/extra/" class="md-nav__link">
+        附加题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/submit/" class="md-nav__link">
+        验收与提交
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 导入虚拟机
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-pin" class="md-nav__link">
+    2. 运行Pin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-insdependdist" class="md-nav__link">
+    3. 编写insDependDist插桩工具
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">实验步骤</h1>
+<h2 id="1">1. 导入虚拟机</h2>
+<p>&emsp;&emsp;本实验提供已安装好实验环境的Debian 11.5.0虚拟机。实验开始前，需要在VirtualBox中导入虚拟机镜像。</p>
+<div class="admonition warning">
+<p class="admonition-title">特别说明 <img alt="🔥" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f525.svg" title=":fire:" /></p>
+<p>&emsp;&emsp;T2-102实验室的PC机已完成虚拟机的导入，但需要在虚拟机的设置中把“处理器数量”改成不大于4的数值。</p>
+</div>
+<p>&emsp;&emsp;首先，安装并打开VirtualBox。</p>
+<p>&emsp;&emsp;然后，按照如图4-1所示，依次点击相应的按钮以导入虚拟机。</p>
+<p><center><img src="../assets/4-1.png" width = 600></center>
+<center>图4-1 导入虚拟机</center></p>
+<p>&emsp;&emsp;点击“打开”按钮后，检查图4-2所示的设置是否与物理机兼容。<strong>如果出现不兼容，需根据物理机的配置进行相应的修改</strong>。</p>
+<p><center><img src="../assets/4-2.png" width = 400></center>
+<center>图4-2 检查虚拟机配置是否需要修改</center></p>
+<p>&emsp;&emsp;检查无误后，点击窗口右下方的“导入”按钮，耐心等待虚拟机导入完成。</p>
+<div class="admonition info">
+<p class="admonition-title">补充说明 <img alt="📣" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4e3.svg" title=":mega:" /></p>
+<p>&emsp;&emsp;导入虚拟机时，如果不确定哪些参数需要改，不妨先完成导入操作。导入完成后，打开虚拟机的设置，检查VirtualBox是否提示“发现无效设置”，如图4-3所示。</p>
+<p><center><img src="../assets/4-3.png"></center>
+<center>图4-3 打开虚拟机设置，查看是否存在无效设置</center></p>
+<p>&emsp;&emsp;如果存在无效设置，把鼠标悬停在图4-3底下的警告图标上，此时VirtualBox将弹出提示信息。按照提示信息，修改相应设置，直到不存在无效设置即可。</p>
+</div>
+<h2 id="2-pin">2. 运行Pin</h2>
+<p>&emsp;&emsp;启动虚拟机后，<strong>以用户名<code>debian</code>、密码<code>123</code>登录系统</strong>。然后，双击桌面上的“主文件夹”以打开<code>/home/debian</code>目录，其中以“pin-3.24”开头的压缩包即为Pin工具包。</p>
+<p>&emsp;&emsp;在主文件夹上右键打开终端，并输入tar命令解压Pin的压缩包，如图4-4所示。</p>
+<p><center><img src="../assets/4-4.png" width = 500></center>
+<center>图4-4 解压下载的Pin压缩包</center></p>
+<p>&emsp;&emsp;解压得到的文件夹名字冗长，不妨将其重命名为<code>pin-3.24</code>。</p>
+<p>&emsp;&emsp;进入Pin工具包的根目录，可以看到类似图4-5的目录结构。</p>
+<p><center><img src="../assets/4-5.png" width = 560></center>
+<center>图4-5 Pin工具包根目录</center></p>
+<p>&emsp;&emsp;其中，<code>doc</code>文件夹存放的是网页形式的Pin文档，内含API说明文档。</p>
+<p>&emsp;&emsp;接着，使用<code>cd</code>命令进入到Pin工具根目录下的<code>source/tools/ManualExamples</code>目录，如图4-6所示。该目录存放的是基于Pin工具包开发的插桩工具范例。</p>
+<p><center><img src="../assets/4-6.png" width = 500></center>
+<center>图4-6 查看插桩工具demo</center></p>
+<p>&emsp;&emsp;然后，执行<code>make</code>命令，编译ManualExamples目录下的插桩工具。</p>
+<p>&emsp;&emsp;编译完成后，即可通过Pin工具包调用所生成的插桩工具对可执行文件进行插桩分析，其语法如图4-7所示。</p>
+<p><center><img src="../assets/4-7.png" width = 500></center>
+<center>图4-7 Pin命令格式</center></p>
+<p>&emsp;&emsp;其中，<code>toolname</code>表示插桩工具，指编译后存放在<code>obj文件夹</code>下的<code>.so文件</code>；<code>output_file</code>表示插桩工具输出到文件；<code>target_executable</code>则表示被插桩分析的可执行文件。例如，基于上述命令，可以使用inscount0的指令计数插桩工具，对<code>ls</code>命令进行插桩，并将插桩工具的输出保存到<code>result.txt</code>，如图4-8所示。</p>
+<p><center><img src="../assets/4-8.png" width = 550></center>
+<center>图4-8 运行inscount插桩工具</center></p>
+<p>&emsp;&emsp;执行上述命令后，Pin将在当前的ManualExamples目录下调用<code>ls</code>工具，从而在终端中打印出当前目录的文件列表。此时，可查看inscount0插桩工具的输出信息，如图4-9所示。</p>
+<p><center><img src="../assets/4-9.png" width = 600></center>
+<center>图4-9 inscount0对<code>ls</code>插桩分析的输出</center></p>
+<h2 id="3-insdependdist">3. 编写insDependDist插桩工具</h2>
+<p>&emsp;&emsp;在虚拟机的<code>/home/debian</code>目录下，以“workspace”开头的压缩包即为本实验的实验包。</p>
+<p>&emsp;&emsp;使用<code>unzip</code>命令解压，或在右键菜单解压，然后将解压后的<code>workspace目录</code>移动到Pin工具包的根目录下，如图4-10所示。</p>
+<p><center><img src="../assets/4-10.png" width = 600></center>
+<center>图4-10 解压workspace到Pin根目录下</center></p>
+<p>&emsp;&emsp;打开workspace目录，可见如图4-11所示的文件夹及文件。</p>
+<p><center><img src="../assets/4-11.png" width = 550></center>
+<center>图4-11 workspace目录中的内容</center></p>
+<div class="admonition attention">
+<p class="admonition-title">注意 <img alt="📢" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4e2.svg" title=":loudspeaker:" /></p>
+<p>&emsp;&emsp;本实验只需修改<code>insDependDist.cpp</code>和<code>makefile.rules</code>，<strong>其余文件夹和文件请勿删改</strong>。</p>
+</div>
+<p>&emsp;&emsp;其中，<code>inscount0.cpp</code>是Pin自带的指令计数插桩工具的范例程序；<code>insDependDist.cpp</code>是本实验的指令依赖距离的插桩工具，该工具将获取可执行文件的指令依赖信息，并将这些信息输出到<code>insDependDist.csv</code>文件；<code>paintInsDependDist.py</code>的绘图程序读取<code>insDependDist.csv</code>文件并绘制被分析可执行文件的指令依赖分布图；<code>obj-intel64</code>文件夹存放编译workspace时生成的ELF文件；<code>makefile</code>、<code>makefile.rules</code>和<code>Config</code>文件夹存放编译workspace所需的编译规则及配置；<code>divide_by_zero_unix.c</code>是编译workspace所需的工具源文件。</p>
+<p>&emsp;&emsp;然后，打开<code>insDependDist.cpp</code>文件，根据注释中的代码提示，补全5处空缺的功能代码。在<code>insDependDist.cpp</code>中，全局数组<code>insDependDistance[]</code>用于存放被插桩程序的指令依赖距离信息——<code>insDependDistance[i]</code>表示依赖距离为<code>i+1</code>的出现次数。例如，在图3-5所示的代码中，<code>SI</code>寄存器的依赖距离为2和3，<code>CX</code>寄存器的依赖距离为1，则插桩工具分析完这4条指令之后，<code>insDependDistance[0]</code>、<code>insDependDistance[1]</code>、<code>insDependDistance[2]</code>的值都将+1。</p>
+<p>&emsp;&emsp;<code>insDependDist.cpp</code>的代码补全完毕后，右键选择<code>Mousepad</code>打开<code>makefile.rules</code>文件，将指令依赖距离插桩工具的名字添加到<code>TEST_TOOL_ROOTS</code>变量的后面，如图4-12所示。</p>
+<p><center><img src="../assets/4-12.png" width = 650></center>
+<center>图4-12 在<code>makefile.rules</code>中添加新的插桩工具</center></p>
+<p>&emsp;&emsp;所有代码编写完成后，打开终端，使用<code>cd</code>命令进入到<code>workspace</code>目录，并输入<code>make</code>命令以编译insDependDist工具。</p>
+<p>&emsp;&emsp;编译完成后，将在<code>obj-intel64</code>（或<code>obj-ia32</code>）目录下生成<code>insDependDist.o</code>和<code>insDependDist.so</code>文件。</p>
+<p>&emsp;&emsp;接着，可以在终端中输入如图4-13所示的命令，对<code>/bin/ls</code>进行插桩分析。</p>
+<p><center><img src="../assets/4-13a.png" width = 410></center>
+<center>a) 默认情况下，最大统计100及以内的依赖距离</center></p>
+<p><center><img src="../assets/4-13b.png" width = 450></center>
+<center>b) 通过<code>-s</code>选项设置插桩工具统计的最大依赖距离（如设置为120）</center></p>
+<p><center>图4-13 使用insDependDist工具对<code>/bin/ls</code>进行插桩分析</center></p>
+<p>&emsp;&emsp;需要注意的是，insDependDist工具默认只统计被插桩可执行文件中不超过100的依赖距离。如果想统计更远的距离，可以使用<code>-s</code>选项来设置，如图4-13 b)所示。此功能得益于<code>insDependDist.cpp</code>中用于设置最大依赖距离的Knob，如图4-14所示。</p>
+<p><center><img src="../assets/4-14.png" width = 650></center>
+<center>图4-14 insDependDist工具中，设置最大依赖距离的Knob</center></p>
+<p>&emsp;&emsp;通过编写Knob，可以在调用插桩工具时进行特殊参数的设置。感兴趣的同学可以自行编写新的Knob。</p>
+<p>&emsp;&emsp;insDependDist工具运行后，将在当前目录中生成<code>/bin/ls</code>的指令依赖距离信息。此时，在终端中使用<code>python3</code>运行<code>paintInsDependDist.py</code>脚本，即可得到<code>/bin/ls</code>的指令依赖距离分布图，如图4-15所示。</p>
+<p><center><img src="../assets/4-15.png" width = 450></center>
+<center>图4-15 <code>/bin/ls</code>的指令依赖距离分布图参考</center></p>
+<div class="admonition info">
+<p class="admonition-title">补充说明 <img alt="📣" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4e3.svg" title=":mega:" /></p>
+<p>&emsp;&emsp;paintInsDependDist.py默认绘制45以内的依赖距离。若想绘制更多，可在调用脚本时添加参数，如<code>python3 paintInsDependDist.py 100</code>。</p>
+</div>
+<p>&emsp;&emsp;感兴趣的同学还可以其他对常用的命令（如<code>pwd</code>、<code>clear</code>、<code>cat</code>等等），或者自己编写的程序进行插桩分析。</p>
+<div class="admonition hint">
+<p class="admonition-title">文件备份 <img alt="💡" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg" title=":bulb:" /></p>
+<p>&emsp;&emsp;若想将虚拟机中的文件拷贝到PC机，或将PC机的文件拷贝进虚拟机，请参考<a href="../../vm">VirtualBox虚拟机共享文件设置</a>。</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../theory/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 实验原理" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              实验原理
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../extra/" class="md-footer__link md-footer__link--next" aria-label="下一页: 附加题" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              附加题
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2019 - 2021 哈尔滨工业大学（深圳）
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+  </body>
+</html>

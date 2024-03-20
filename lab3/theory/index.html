@@ -1,0 +1,1235 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>实验原理 - 计算机体系结构实验（2022秋季） | 哈工大（深圳）</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="计算机体系结构实验（2022秋季） | 哈工大（深圳）" class="md-header__button md-logo" aria-label="计算机体系结构实验（2022秋季） | 哈工大（深圳）" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24zm-16 104h192c17.7 0 32 14.3 32 32v192c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160v192h192V160z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            计算机体系结构实验（2022秋季） | 哈工大（深圳）
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              实验原理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://gitee.com/hitsz-cslab/arch" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CompArch
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        首页
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lab1/overview/" class="md-tabs__link">
+        实验1：Pin入门及指令依赖距离分析
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lab2/overview/" class="md-tabs__link">
+        实验2：分支预测器设计
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../overview/" class="md-tabs__link md-tabs__link--active">
+        实验3：Cache设计
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lab4/overview/" class="md-tabs__link">
+        实验4：层次存储系统分析
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="计算机体系结构实验（2022秋季） | 哈工大（深圳）" class="md-nav__button md-logo" aria-label="计算机体系结构实验（2022秋季） | 哈工大（深圳）" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24zm-16 104h192c17.7 0 32 14.3 32 32v192c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160v192h192V160z"/></svg>
+
+    </a>
+    计算机体系结构实验（2022秋季） | 哈工大（深圳）
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://gitee.com/hitsz-cslab/arch" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CompArch
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          首页
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="首页" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          首页
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        实验须知
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ojguide/" class="md-nav__link">
+        作业提交说明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vm/" class="md-nav__link">
+        虚拟机共享文件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          实验1：Pin入门及指令依赖距离分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验1：Pin入门及指令依赖距离分析" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          实验1：Pin入门及指令依赖距离分析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab1/overview/" class="md-nav__link">
+        实验概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab1/theory/" class="md-nav__link">
+        实验原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab1/step/" class="md-nav__link">
+        实验步骤
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab1/extra/" class="md-nav__link">
+        附加题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab1/submit/" class="md-nav__link">
+        验收与提交
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          实验2：分支预测器设计
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验2：分支预测器设计" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          实验2：分支预测器设计
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/overview/" class="md-nav__link">
+        实验概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/theory/" class="md-nav__link">
+        实验原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/step/" class="md-nav__link">
+        实验步骤
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/extra/" class="md-nav__link">
+        附加题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/submit/" class="md-nav__link">
+        验收与提交
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          实验3：Cache设计
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验3：Cache设计" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          实验3：Cache设计
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        实验概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          实验原理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        实验原理
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-cache" class="md-nav__link">
+    1. Cache简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 基本工作流程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 地址映射规则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 地址索引方式
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 地址索引方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-" class="md-nav__link">
+    4.1 虚拟索引-虚拟标识
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-" class="md-nav__link">
+    4.2 物理索引-物理标识
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-" class="md-nav__link">
+    4.3 虚拟索引-物理标识
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cachemodelcpp" class="md-nav__link">
+    5. cacheModel.cpp说明
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../step/" class="md-nav__link">
+        实验步骤
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extra/" class="md-nav__link">
+        附加题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../submit/" class="md-nav__link">
+        验收与提交
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          实验4：层次存储系统分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验4：层次存储系统分析" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          实验4：层次存储系统分析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/overview/" class="md-nav__link">
+        实验概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/theory/" class="md-nav__link">
+        实验原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/step/" class="md-nav__link">
+        实验步骤
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/extra/" class="md-nav__link">
+        附加题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/submit/" class="md-nav__link">
+        验收与提交
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-cache" class="md-nav__link">
+    1. Cache简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 基本工作流程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 地址映射规则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 地址索引方式
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 地址索引方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-" class="md-nav__link">
+    4.1 虚拟索引-虚拟标识
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-" class="md-nav__link">
+    4.2 物理索引-物理标识
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-" class="md-nav__link">
+    4.3 虚拟索引-物理标识
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cachemodelcpp" class="md-nav__link">
+    5. cacheModel.cpp说明
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">实验原理</h1>
+<h2 id="1-cache">1. Cache简介</h2>
+<p>&emsp;&emsp;为了缓解CPU和主存之间的存储墙（Memory Wall）问题，架构设计师在CPU和主存之间增加了高速缓存器（Cache）。根据程序访问的局部性原理，如果在Cache中缓存CPU刚刚访问过的数据及其邻近的数据，那么当CPU再次访问（且大概率会再次访问）这些数据时，就可以直接从Cache中获取，减少CPU的等待时间，从而提高数据访问效率和CPU利用率，进而提高计算机系统的整体性能。</p>
+<p>&emsp;&emsp;为了平衡性能和成本，现代计算机系统通常采用“寄存器 - Cache - 主存 - 辅存”的多级存储结构。通常Cache又进一步分为L1 Cache（一级缓存）和L2 Cache（二级缓存）等，如图3-1所示。</p>
+<p><center><img src="../assets/3-1.png" width = 380></center>
+<center>图3-1 现代计算机系统的多级存储系统</center></p>
+<h2 id="2">2. 基本工作流程</h2>
+<p>&emsp;&emsp;Cache存放的是主存数据的副本，而Cache容量远小于主存，因此需要为Cache块增加块标记（Tag）以标记Cache块当前存放的是哪一个内存数据块。此外，还需为Cache块增加有效位（valid）以表示Cache块当前是否存放了有效数据。一般地，将各个Cache块的块标记和有效位合称为Cache的 <strong>目录表</strong>，也称Cache的 <strong>元数据</strong>（Metadata）。</p>
+<p>&emsp;&emsp;Cache完成CPU访问的工作流程有三步：第一步，将主存地址映射成Cache地址，即按照相应的地址映射规则从主存地址中分解出块标记，并用块标记查询Cache目录表，判断是否命中；若命中则进行地址变换；若不命中，则需要先结合替换策略从主存中调入数据块再进行地址变换；第二步，使用变换得到的Cache地址访问Cache，完成CPU的访存需求，这与访问普通RAM完全相同；第三步，根据写策略在适当的时候将所写数据写回主存，以保持Cache和主存的数据一致性。</p>
+<h2 id="3">3. 地址映射规则</h2>
+<p>&emsp;&emsp;Cache地址和主存地址之间的有全相联映射、直接映射和组相联映射三种映射规则。</p>
+<p>&emsp;&emsp;全相联映射方式下，只要Cache中还有空闲的Cache块，主存中的任意一个数据块就都可以缓存在Cache中。因此，全相联Cache能够获得较高的空间利用率和命中率，但由于访问数据块时需要遍历所有Cache元数据，故其访问延迟较大。</p>
+<p>&emsp;&emsp;直接映射方式下，主存被划分成若干个区，每个区所包含的数据块数与Cache块数相同，且每个区中的第<script type="math/tex">i</script>块只能映射到Cache中的第<script type="math/tex">i</script>块。明确的映射方式使得访问Cache时只需读取一条元数据即可判断是否命中，故直接映射Cache具有较快的访问速度，但命中率也随之受到一定影响。</p>
+<p>&emsp;&emsp;组相联映射是全相联映射和直接映射的折中方案。在组相联映射方式下，主存被划分成若干个区，Cache被划分成若干个组，并且主存中每个区包含数据块个数等于Cache的组数；Cache组间采用直接映射，组内采用全相联映射。假设某组相联Cache容量为32KB，主存容量为2MB，块大小为128B，则Cache与主存的映射关系以及主存地址格式如图3-2所示。</p>
+<p><center><img src="../assets/3-2.png"></center>
+<center>图3-2 组相联映射示意图及主存地址格式</center></p>
+<h2 id="4">4. 地址索引方式</h2>
+<p>&emsp;&emsp;在支持虚拟存储的系统当中，CPU访问存储器的地址都是虚拟地址。虚拟地址首先需要经过MMU或页表转换成对应的物理地址，才能从存储器中访问到CPU想要的数据。</p>
+<p>&emsp;&emsp;对组相联映射方式而言，CPU访问Cache时，首先从主存地址中分解出区内块号作为Cache组号的索引，以定位数据可能在Cache中的哪个组；然后从主存地址中分解出区号作为块标记，跟Cache组中的现有块标记进行匹配。根据CPU访问Cache时，Cache接收到的区内块号（即Cache组索引）、区号（即块标记）所对应的地址是虚拟地址还是物理地址，可将Cache的地址索引方式分为虚拟索引-虚拟标识（Virtually Indexed and Virtually Tagged，VIVT）、物理索引-物理标识（Physically Indexed and Physically Tagged，PIPT）和物理索引-虚拟标识（Virtually Indexed and Physically Tagged，VIPT）三种。</p>
+<h3 id="41-">4.1 虚拟索引-虚拟标识</h3>
+<p>&emsp;&emsp;VIVT的Cache又称虚拟Cache，采用虚拟地址作为索引和块标记，可以直接接受虚拟地址访问，其基本结构如图3-3所示。当CPU需要访问存储器时，将虚拟地址同时发给TLB和Cache，以同时进行Cache访问和虚实地址转换 —— Cache接受虚拟地址并判断当前访问是否命中，如果命中则直接从相应的Cache块中取出数据并返回给CPU；如果发生缺失，则使用TLB转换得到的物理地址访问主存，以取出数据块并装入Cache。</p>
+<p><center><img src="../assets/3-3.png" width = 500></center>
+<center>图3-3 VIVT Cache存储系统示意图</center></p>
+<p>&emsp;&emsp;在VIVT Cache存储系统中，Cache访问和虚实地址转换是并行进行的，在Cache缺失时可以马上使用物理地址访问主存，因此VIVT Cache具有较低的访问延迟。</p>
+<p>&emsp;&emsp;由于不同的进程具有不同的虚拟地址空间，因此发生进程切换时，需要清空VIVT Cache，从而增加了进程切换的开销，也降低了整体的Cache命中率。</p>
+<h3 id="42-">4.2 物理索引-物理标识</h3>
+<p>&emsp;&emsp;PIPT的Cache又称物理Cache，采用物理地址作为索引和块标记，接受物理地址访问，其基本结构如图3-4所示。CPU在访问存储器时，首先需要将虚拟地址发给TLB进行虚实地址转换，然后使用得到的物理地址访存。当Cache命中时，从相应的Cache块中取出数据并返回给CPU；当Cache访问缺失时，使用物理地址访问主存，取出相应的数据块并装入Cache。</p>
+<p><center><img src="../assets/3-4.png" width = 500></center>
+<center>图3-4 PIPT Cache存储系统示意图</center></p>
+<p>&emsp;&emsp;与VIVT Cache不同，PIPT Cache存储系统的Cache访问和虚实地址转换是串行进行的，因此具有较大的访问延迟，但发生进程切换时，不需要清空Cache。</p>
+<h3 id="43-">4.3 虚拟索引-物理标识</h3>
+<p>&emsp;&emsp;VIPT的Cache采用虚拟地址作为索引、物理地址作为块标记，接受虚拟地址访问，其基本结构如图3-5所示。CPU访问VIPT Cache时，使用虚拟地址作为索引查Cache的元数据，同时将虚拟地址发给TLB进行虚实地址转换。理想情况下，虚拟索引在Cache中查到了相应的数据时，TLB的虚实地址转换也正好完成，此时即可进行物理标识的比对。</p>
+<p><center><img src="../assets/3-5.png" width = 500></center>
+<center>图3-5 VIPT Cache存储系统示意图</center></p>
+<p>&emsp;&emsp;VIVT Cache的优点是访问延迟低，缺点是进程切换需要清空Cache；PIPT Cache的优点是进程切换不需要清空Cache，但访问延迟较高。为此，VIPT Cache采用了虚拟地址索引、物理地址标识，使得Cache访问和TLB虚实地址转换具有一定的并行度，从而同时具备了VIVT Cache并行访问的优点和PIPT Cache不受进程切换影响的优点。</p>
+<div class="admonition question">
+<p class="admonition-title">思考题 <img alt="📖" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4d6.svg" title=":book:" /></p>
+<p>&emsp;&emsp;若采用VIPT索引方式，直接映射Cache的大小需要小于单个页的大小，为什么？</p>
+</div>
+<h2 id="5-cachemodelcpp">5. cacheModel.cpp说明</h2>
+<p>&emsp;&emsp;实验包的源文件<code>cacheModel.cpp</code>中定义了6个Cache类，其中<code>CacheModel</code>是基类，其他是子类；<code>FullAssoCache</code>、<code>SetAssoCache</code>分别是全相联映射和组相联映射Cache，如图3-6所示。</p>
+<p><center><img src="../assets/3-6.png"></center>
+<center>图3-6 Cache类图</center></p>
+<p>&emsp;&emsp;其中基类CacheModel的各个成员变量的含义如表3-1所示。</p>
+<p><center>表3-1 CacheModel类成员变量</center>
+<center></p>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="left">成员变量</th>
+<th align="left">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="left">m_block_num</td>
+<td align="left">Cache块的数目</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">m_blksz_log</td>
+<td align="left">Cache块大小的以2为底的对数</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">m_valids</td>
+<td align="left">有效位标记</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">m_tags</td>
+<td align="left">Cache块标记</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">m_replace_q</td>
+<td align="left">发生Cache块替换时，待替换块所组成的候选队列</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">m_rd_reqs</td>
+<td align="left">读请求次数</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">m_wr_reqs</td>
+<td align="left">写请求次数</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">m_rd_hits</td>
+<td align="left">读请求命中次数</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="left">m_wr_hits</td>
+<td align="left">写请求命中次数</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>&emsp;&emsp;基类CacheModel的各个成员函数的说明如表3-2所示。</p>
+<p><center>表3-2 CacheModel类成员函数</center>
+<center></p>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="left">成员函数</th>
+<th align="left">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="left">readReq</td>
+<td align="left">接收到读请求时，查询Cache是否命中，同时更新m_rd_reqs和m_rd_hits</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">writeReq</td>
+<td align="left">接收到写请求时，查询Cache是否命中，同时更新m_wr_reqs和m_wr_hits</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">getRdReq</td>
+<td align="left">返回当前接收到的读请求总次数m_rd_reqs</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">getWrReq</td>
+<td align="left">返回当前接收到的写请求总次数m_wr_reqs</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">dumpResults</td>
+<td align="left">打印当前接收到的请求次数、命中次数和命中率</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">lookup</td>
+<td align="left">（<strong>纯虚函数</strong>）用当前的访存地址查Cache，判断是否命中；若命中，记录对应块号</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">access</td>
+<td align="left">（<strong>纯虚函数</strong>）模拟Cache访问：命中时更新替换候选队列，否则进行Cache块替换</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">updateReplaceQ</td>
+<td align="left">（<strong>纯虚函数</strong>）更新Cache块替换的候选队列m_replace_q</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../overview/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 实验概述" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              实验概述
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../step/" class="md-footer__link md-footer__link--next" aria-label="下一页: 实验步骤" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              实验步骤
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2019 - 2021 哈尔滨工业大学（深圳）
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+  </body>
+</html>
