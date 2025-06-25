@@ -1,7 +1,8 @@
-site_name: 计算机体系结构实验（2022秋季） | 哈工大（深圳）
-copyright: 'Copyright &copy; 2019 - 2021 哈尔滨工业大学（深圳）'
-repo_name: 'CompArch'
-repo_url: 'https://gitee.com/hitsz-cslab/arch'
+# site_name: 计算机体系结构实验（2022秋季） | 哈工大（深圳）
+site_name: 计算机体系结构实验（2022秋季）
+# copyright: 'Copyright &copy; 2019 - 2021 哈尔滨工业大学（深圳）'
+# repo_name: 'CompArch'
+# repo_url: 'https://gitee.com/hitsz-cslab/arch'
 
 markdown_extensions:
   - pymdownx.betterem:
